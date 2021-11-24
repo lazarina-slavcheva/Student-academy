@@ -1,0 +1,19 @@
+number = int(input())
+students = {}
+av_list = {}
+total = 0
+av_grade = 0
+for num in range(number):
+    name = input()
+    grade = float(input())
+    if name not in students:
+        students[name] = [grade]
+    else:
+        students[name] += [grade]
+for key, value in students.items():
+    av_grade = sum(value) / len(value)
+    if av_grade >= 4.5:
+        av_list[key] = av_grade
+sorted_av_list = {k:v for k,v in sorted(av_list.items(), key=lambda  item: -item[1])}
+for k, v in sorted_av_list.items():
+    print(f"{k} -> {v:.2f}")
